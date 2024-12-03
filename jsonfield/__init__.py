@@ -1,3 +1,1 @@
-from .fields import JSONCharField, JSONField
-
-__all__ = ['JSONCharField', 'JSONField']
+from .fields import JSONCharField, JSONField  # noqa

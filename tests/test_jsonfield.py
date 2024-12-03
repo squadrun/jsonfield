@@ -170,10 +170,7 @@ class JSONFieldTest(TestCase):
             next(deserialize('json', ser))
         # Django 2 does not reraise DeserializationError as another DeserializationError
         # Changed in: https://github.com/django/django/pull/7878
-        if django.VERSION < (2, 0,):
-            inner = cm.exception.__context__.__context__
-        else:
-            inner = cm.exception.__context__
+        inner = cm.exception.__context__
         self.assertIsInstance(inner, ValidationError)
         self.assertEqual('Enter valid JSON.', inner.messages[0])
 
